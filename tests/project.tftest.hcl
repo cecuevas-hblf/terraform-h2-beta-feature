@@ -1,5 +1,5 @@
 mock_provider "google-beta" {}
-run "create_project" {
+run "create_network" {
   command = plan
 
   variables {
@@ -13,5 +13,6 @@ run "create_project" {
     internal_ipv6_range                       = "fd20::/20"
     network_firewall_policy_enforcement_order = "BEFORE_CLASSIC_FIREWALL"
     network_profile                           = false
+    shared_vpc_host                           = false
   }
 }
