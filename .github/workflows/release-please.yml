@@ -19,6 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install @octokit/action
+      - run: npm i node-fetch@2.6.1
         name: Install Octokit
       - id: change-finder
         uses: actions/github-script@v6.4.1
