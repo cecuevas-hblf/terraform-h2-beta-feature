@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.3.1...v0.4.0) (2025-01-22)
+
+
+### Features
+
+* shared VPC caps ([b160d9b](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/b160d9b828328a6c18b023b04c92f8ef9e527a86))
+
 ## [0.3.1](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.3.0...v0.3.1) (2025-01-22)
 
 
