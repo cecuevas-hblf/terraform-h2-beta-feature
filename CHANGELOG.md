@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.0...v0.4.1) (2025-01-22)
+
+
+### Bug Fixes
+
+* change google provider version ([7d97608](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/7d976081d3aec450543513b2b05b065f78c84536))
+
 ## [0.4.0](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.3.1...v0.4.0) (2025-01-22)
 
 
