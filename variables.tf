@@ -89,3 +89,7 @@ variable "network_profile" {
       * projects/{projectId}/global/networkProfiles/{network_profile_name}
     EOT
 }
+
+variable "testing" {
+  type      = string
+}
