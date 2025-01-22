@@ -44,7 +44,7 @@ jobs:
             const changes = status.split('\n');
             let modules_paths = new Set();
             for (const change of changes) {
-              if (change.startsWith('modules/')) {
+              if (change.startsWith('/')) {
                   const library = change.split('/')[1];
                   modules_paths.add(library);
               };
