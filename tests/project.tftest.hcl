@@ -10,6 +10,6 @@ run "create_project" {
     mtu                                       = 1460
     enable_ula_internal_ipv6                  = true
     internal_ipv6_range                       = "fd20::/20"
-    network_firewall_policy_enforcement_order = false
+    network_firewall_policy_enforcement_order = "check"
     network_profile                           = false
 }
