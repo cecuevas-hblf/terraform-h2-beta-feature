@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.1.0...v0.2.0) (2025-01-22)
+
+
+### Features
+
+* removed shared vpc from main ([5cd5166](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/5cd5166c34c77975de162e45e8eccc949a2d9513))
+
+
+### Bug Fixes
+
+* change vpc name ([c8fc0f3](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/c8fc0f31859e21c30784ee559b127d355f2f96f0))
+* fix var names ([440284d](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/440284d0777d044b463fe74f29b959d0529cdf81))
+
 ## 0.1.0 (2025-01-22)
 
 
