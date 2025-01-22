@@ -1,5 +1,3 @@
-name: Release please workflow
-
 on:
   push:
     branches:
@@ -8,91 +6,14 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  packages: write
+
+name: release-please
 
 jobs:
-  find-release-changes:
-    name: Change finder for modules folders
+  release-please-new-version:
     runs-on: ubuntu-latest
-    outputs:
-      module-paths: ${{ steps.change-finder.outputs.result }}
     steps:
-      - uses: actions/checkout@v4.2.2
-      - run: npm install @octokit/action
-        name: Install Octokit
-      - id: change-finder
-        uses: actions/github-script@v7.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_REPO_NEW }} 
-        with:
-          script: |
-            const { Octokit } = require("@octokit/action");
-            const { execSync } = require('child_process');
-            const octokit = new Octokit()
-            const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
-            const latestRelease = await octokit.request('GET /repos/{owner}/{repo}/releases/latest', {
-              owner: owner,
-              repo: repo,
-              headers: {
-                'X-GitHub-Api-Version': '2022-11-28'
-              }
-            })
-            console.log(`latest release: ${JSON.stringify(latestRelease.data)}`);
-            execSync('git pull --tags');
-            const status = execSync(`git diff --name-only ${latestRelease.data.tag_name} origin/main`, { encoding: 'utf-8'});
-            console.log(status);
-            const changes = status.split('\n');
-            let modules_paths = new Set();
-            for (const change of changes) {
-              if (change.startsWith('/')) {
-                  const library = change.split('/')[1];
-                  modules_paths.add(library);
-              };
-            }
-            modules_paths = Array.from(modules_paths);
-            console.log(modules_paths);
-            return modules_paths;
-
-  validate-output:
-    runs-on: ubuntu-latest
-    needs: find-release-changes
-    steps:
-      - run: echo ${{fromJson(needs.find-release-changes.outputs.module-paths)}}
-
-  release-pr:
-    runs-on: ubuntu-latest
-    needs: find-release-changes
-    strategy:
-      fail-fast: false
-      matrix:
-        module: ${{fromJson(needs.find-release-changes.outputs.module-paths)}}
-    steps:
-      - uses: google-github-actions/release-please-action@v3.1.2
-        id: release-please
-        with:
-          path: modules/${{ matrix.module }}
-          changelog-path: CHANGELOG.md
-          token: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
-          release-type: terraform-module
-          package-name: ${{ matrix.module }}
-          monorepo-tags: true
-          command: release-pr
-
-  release-please-release:
-    runs-on: ubuntu-latest
-    needs: find-release-changes
-    strategy:
-      fail-fast: false
-      matrix:
-        module: ${{fromJson(needs.find-release-changes.outputs.module-paths)}}
-    steps:
-      - uses: google-github-actions/release-please-action@v3
-        id: tag-release
-        with:
-          path: modules/${{ matrix.module }}
-          changelog-path: CHANGELOG.md
-          token: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
-          release-type: terraform-module
-          monorepo-tags: true
-          package-name: ${{ matrix.module }}
-          command: github-release
+      - uses: googleapis/release-please-action@v4.1.3
+        with: #Action Inputs start here https://github.com/marketplace/actions/release-please-action#advanced-release-configuration
+          token: ${{ secrets.RELEASE_PLEASE_REPO }}
+          release-type: terraform-module # Could be changed to terraform-module? Check requirements https://github.com/marketplace/actions/release-please-action#release-types-supported
