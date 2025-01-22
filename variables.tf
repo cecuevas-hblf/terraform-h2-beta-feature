@@ -92,4 +92,5 @@ variable "network_profile" {
 
 variable "testing" {
   type      = string
+  default   = null
 }
