@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.2.0...v0.3.0) (2025-01-22)
+
+
+### Features
+
+* add new variable value ([ff43e91](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/ff43e9119a02198121278c07af69127b0fc88aea))
+
 ## [0.2.0](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.1.0...v0.2.0) (2025-01-22)
 
 
