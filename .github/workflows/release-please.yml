@@ -17,6 +17,40 @@ jobs:
         with: #Action Inputs start here https://github.com/marketplace/actions/release-please-action#advanced-release-configuration
           token: ${{ secrets.RELEASE_PLEASE_REPO }}
           release-type: terraform-module # Could be changed to terraform-module? Check requirements https://github.com/marketplace/actions/release-please-action#release-types-supported
+  find-changes:
+    name: Find in modules folder
+    runs-on: ubuntu-latest
+    outputs:
+      changed-modules: ${{ steps.changed-modules.outputs.result }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v39
+        with:
+          files_ignore: '.github/workflows/**'
+      - name: Get changed modules
+        id: changed-modules
+        uses: actions/github-script@v6.4.1
+        with:
+          script: |
+            const paths = "${{ steps.changed-files.outputs.all_modified_files }}";
+            const regex = /modules\/([^/]+)/g;
+            const matches = paths.match(regex);
+            if (!matches) {
+              return [];
+            }
+            // Extract the module names from the matches
+            const moduleNames = matches.map(match => {
+              return match; // Extract the entire match
+            });
+            // Remove duplicates and return the unique module names
+            const uniqueModuleNames = Array.from(new Set(moduleNames));
+            console.log(uniqueModuleNames);
+            return uniqueModuleNames;
   module-review:
     name: Individual module review
     runs-on: ubuntu-latest
