@@ -94,3 +94,8 @@ variable "testing" {
   type      = string
   default   = null
 }
+
+variable "testing-two" {
+  type    = string
+  default = null
+}
