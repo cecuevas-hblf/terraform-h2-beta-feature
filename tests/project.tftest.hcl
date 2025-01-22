@@ -12,4 +12,5 @@ run "create_project" {
     internal_ipv6_range                       = "fd20::/20"
     network_firewall_policy_enforcement_order = "check"
     network_profile                           = false
+  }
 }
