@@ -19,7 +19,7 @@
  *****************************************/
 resource "google_compute_network" "network" {
   provider                                  = google-beta
-  name                                      = "test"
+  name                                      = "test-two"
   auto_create_subnetworks                   = var.auto_create_subnetworks
   routing_mode                              = var.routing_mode
   project                                   = var.project_id
