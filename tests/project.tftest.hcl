@@ -3,7 +3,7 @@ run "create_project" {
   command = plan
 
   variables {
-    name                                      = "test"
+    network_name                              = "test"
     auto_create_subnetworks                   = false
     routing_mode                              = "global"
     project_id                                = "abcade234"
