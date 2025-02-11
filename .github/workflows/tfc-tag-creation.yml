@@ -21,11 +21,11 @@ jobs:
           view_top: 1
 
       - name: Show GitHub context
+
+  
+      - name: Show GitHub context Make API Request
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT" >> ${GITHUB_ENV}
-  
-      - name: Make API Request
         id: api_request
         uses: fjogeleit/http-request-action@v1
         with:
@@ -33,7 +33,7 @@ jobs:
           method: 'POST'
           bearerToken: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
           customHeaders: '{"Content-Type": "application/vnd.api+json"}'
-          data: '{"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }}, "commit-sha": ${{ GITHUB_ENV.sha }} }}'
+          data: '{"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }}, "commit-sha": ${{ GITHUB_CONTEXT.sha }} }}'
 
       - name: Show API Response Status
         run: |
