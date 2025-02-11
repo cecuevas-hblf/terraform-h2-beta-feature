@@ -28,7 +28,7 @@ jobs:
           method: 'POST'
           bearerToken: ${{ secrets.API_HEADERS }}
           customHeaders: '{"Content-Type": "application/vnd.api+json"}'
-          data: '{ "data": {"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }}, "commit-sha": ${{ github.sha }} } } }'
+          data: '{ "data": {"type": "registry-module-versions", "attributes": { "version": "${{ steps.last_release.outputs.tag_name }}", "commit-sha": "${{ github.sha }}" } } }'
 
       - name: Show API Response Status
         run: |
