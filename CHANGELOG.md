@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.1...v0.4.2) (2025-02-11)
+
+
+### Bug Fixes
+
+* **test-files:** change boolean value ([139482f](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/139482f474f9ab1e6c0b320220023b2c6e0b3312))
+
 ## [0.4.1](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.0...v0.4.1) (2025-01-22)
 
 
