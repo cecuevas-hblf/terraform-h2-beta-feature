@@ -18,7 +18,12 @@ jobs:
         uses: InsonusK/get-latest-release@v1.0.1
         with:
           view_top: 1
-          
+
+      - name: Show GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+  
       - name: Make API Request
         id: api_request
         uses: muhfaris/request-action@v1
@@ -31,7 +36,7 @@ jobs:
                 "type": "registry-module-versions",
                 "attributes": {
                   "version": ${{ steps.last_release.outputs.tag_name }}, # Get the GH latest release
-                  "commit-sha": ${{ GITHUB_SHA }} # Get latest commit SHA
+                  "commit-sha": ${{ github.event.pull_request.head.sha }} # Get latest commit SHA
                 }
               }
             }
