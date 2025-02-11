@@ -1,1 +1,46 @@
 name: Make API Request to Terraform Cloud to reconcile module version with GitHub release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  make-api-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get latest release version
+        id: last_release
+        uses: InsonusK/get-latest-release@v1.0.1
+        with:
+          view_top: 1
+          
+      - name: Make API Request
+        id: api_request
+        uses: muhfaris/request-action@v1
+        with:
+          url: https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions
+          headers: '{"Authorization: Bearer $API_TOKEN", "Content-Type: application/vnd.api+json"}'
+          body: |
+            {
+              "data": {
+                "type": "registry-module-versions",
+                "attributes": {
+                  "version": ${{ steps.last_release.outputs.tag_name }}, # Get the GH latest release
+                  "commit-sha": ${{ GITHUB_SHA:0:9 }} # Get latest commit SHA
+                }
+              }
+            }
+          method: POST
+
+      - name: Show API Response Status
+        run: |
+          echo "Response Status: ${{ steps.api_request.outputs.response-status }}"
+
+      - name: Show API Response Data
+        run: |
+          echo "Response Data: ${{ steps.api_request.outputs.response-data }}"
