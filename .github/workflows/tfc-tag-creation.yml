@@ -31,7 +31,7 @@ jobs:
                 "type": "registry-module-versions",
                 "attributes": {
                   "version": ${{ steps.last_release.outputs.tag_name }}, # Get the GH latest release
-                  "commit-sha": ${{ GITHUB_SHA:0:9 }} # Get latest commit SHA
+                  "commit-sha": ${{ GITHUB_SHA }} # Get latest commit SHA
                 }
               }
             }
