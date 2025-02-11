@@ -20,20 +20,7 @@ jobs:
           myToken: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
           view_top: 1
 
-      - name: Setup Environment (PR)  
-        if: ${{ github.event_name == 'pull_request' }}  
-        shell: bash  
-        run: |  
-          echo "LAST_COMMIT_SHA=${{ github.event.pull_request.head.sha }}" >> ${GITHUB_ENV}  
-      - name: Setup Environment (Push)  
-        if: ${{ github.event_name == 'push' }}  
-        shell: bash  
-        run: |  
-          echo "LAST_COMMIT_SHA=${GITHUB_SHA}" >> ${GITHUB_ENV}        
-  
-      - name: Show GitHub context Make API Request
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - name: Make API Request
         id: api_request
         uses: fjogeleit/http-request-action@v1
         with:
@@ -41,7 +28,7 @@ jobs:
           method: 'POST'
           bearerToken: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
           customHeaders: '{"Content-Type": "application/vnd.api+json"}'
-          data: '{"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }}, "commit-sha": ${{ GITHUB_ENV }} }}'
+          data: '{"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }}, "commit-sha": ${{ github.sha }} }}'
 
       - name: Show API Response Status
         run: |
