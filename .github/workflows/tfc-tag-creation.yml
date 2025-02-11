@@ -27,7 +27,7 @@ jobs:
   
       - name: Make API Request
         id: api_request
-        uses: mfjogeleit/http-request-action@v1
+        uses: fjogeleit/http-request-action@v1
         with:
           url: 'https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions'
           method: 'POST'
