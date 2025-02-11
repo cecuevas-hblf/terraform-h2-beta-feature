@@ -33,7 +33,7 @@ jobs:
           method: 'POST'
           bearerToken: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
           customHeaders: '{"Content-Type": "application/vnd.api+json"}'
-          data: '{"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }}' # Get latest commit SHA
+          data: '{"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }} }}' # Get latest commit SHA
 
       - name: Show API Response Status
         run: |
