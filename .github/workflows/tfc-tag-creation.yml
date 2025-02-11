@@ -31,14 +31,12 @@ jobs:
         with:
           url: https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions
           headers: '{"Authorization: Bearer $API_TOKEN", "Content-Type: application/vnd.api+json"}'
-          body:
+          body: |
             {
-              "data": {
                 "type": "registry-module-versions",
                 "attributes": {
                   "version": ${{ steps.last_release.outputs.tag_name }}, # Get the GH latest release
                   "commit-sha": ${{ github.event.pull_request.head.sha }} # Get latest commit SHA
-                }
               }
             }
           method: POST
