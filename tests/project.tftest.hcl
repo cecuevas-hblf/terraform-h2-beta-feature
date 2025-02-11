@@ -13,6 +13,6 @@ run "create_network" {
     internal_ipv6_range                       = "fd20::/20"
     network_firewall_policy_enforcement_order = "BEFORE_CLASSIC_FIREWALL"
     network_profile                           = false
-    shared_vpc_host                           = false
+    shared_vpc_host                           = true
   }
 }
