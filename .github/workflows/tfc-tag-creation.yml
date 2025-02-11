@@ -26,7 +26,7 @@ jobs:
         with:
           url: 'https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions'
           method: 'POST'
-          bearerToken: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
+          bearerToken: ${{ secrets.API_HEADERS }}
           customHeaders: '{"Content-Type": "application/vnd.api+json"}'
           data: '{ "data": {"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }}, "commit-sha": ${{ github.sha }} } } }'
 
