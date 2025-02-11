@@ -27,19 +27,12 @@ jobs:
   
       - name: Make API Request
         id: api_request
-        uses: muhfaris/request-action@v0.1.2
+        uses: mfjogeleit/http-request-action@v1
         with:
-          url: https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions
-          headers: '{"Authorization: Bearer $API_TOKEN", "Content-Type: application/vnd.api+json"}'
-          body: |
-            {
-                "type": "registry-module-versions",
-                "attributes": {
-                  "version": ${{ steps.last_release.outputs.tag_name }}, # Get the GH latest release
-                  "commit-sha": ${{ github.event.pull_request.head.sha }} # Get latest commit SHA
-              }
-            }
-          method: POST
+          url: 'https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions'
+          method: 'POST'
+          customHeaders: '{"Authorization: Bearer $API_TOKEN", "Content-Type: application/vnd.api+json"}'
+          data: '{"type": "registry-module-versions", "attributes": { "version": ${{ steps.last_release.outputs.tag_name }}, # Get the GH latest release "commit-sha": ${{ github.event.pull_request.head.sha }}' # Get latest commit SHA
 
       - name: Show API Response Status
         run: |
