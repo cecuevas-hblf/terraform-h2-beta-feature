@@ -19,9 +19,6 @@ jobs:
         with:
           myToken: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
           view_top: 1
-
-      - name: Show GitHub context
-
   
       - name: Show GitHub context Make API Request
         env:
