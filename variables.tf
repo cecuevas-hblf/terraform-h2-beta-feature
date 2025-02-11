@@ -104,3 +104,8 @@ variable "testing-three" {
   type    = string
   default = null
 }
+
+variable "tag-creation" {
+  type    = string
+  default = null
+}
