@@ -129,3 +129,8 @@ variable "demo" {
   type    = string
   default = null
 }
+
+variable "demo-two" {
+  type    = string
+  default = null
+}
