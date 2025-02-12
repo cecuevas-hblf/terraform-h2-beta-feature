@@ -14,7 +14,7 @@ jobs:
 
       - name: Get latest release version
         id: last_release
-        uses: InsonusK/get-latest-release@v1.0.1
+        uses: InsonusK/get-latest-release@v1.1.0
         with:
           myToken: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
           view_top: 1
