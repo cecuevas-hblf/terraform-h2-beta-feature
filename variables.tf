@@ -109,3 +109,8 @@ variable "tag-creation" {
   type    = string
   default = null
 }
+
+variable "tag-creation-trigger-on-release" {
+  type    = string
+  default = null
+}
