@@ -14,4 +14,4 @@ jobs:
 
       - name: Make API Request
         run: | 
-          curl -H 'Authorization: Bearer ${{ secrets.API_HEADERS }}' -H 'Content-Type: application/vnd.api+json' --d '{ "data": {"type": "registry-module-versions", "attributes": { "version": "${{ github.event.release.tag_name }}", "commit-sha": "${{ github.sha }}" } } }' -X POST https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions
+          curl -H 'Authorization: Bearer ${{ secrets.API_HEADERS }}' -H 'Content-Type: application/vnd.api+json' -d '{ "data": {"type": "registry-module-versions", "attributes": { "version": "${{ github.event.release.tag_name }}", "commit-sha": "${{ github.sha }}" } } }' -X POST https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions
