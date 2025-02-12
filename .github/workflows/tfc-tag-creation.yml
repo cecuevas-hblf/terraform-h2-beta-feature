@@ -35,4 +35,4 @@ jobs:
 
       - name: Show API Response Data
         run: |
-          echo "Response Data: ${{ steps.api_request.outputs.data }}"
+          echo "Response Data: ${{ steps.api_request.outputs.response }}"
