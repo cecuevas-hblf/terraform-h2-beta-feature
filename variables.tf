@@ -124,3 +124,8 @@ variable "from-vsc" {
   type    = string
   default = null
 }
+
+variable "demo" {
+  type    = string
+  default = null
+}
