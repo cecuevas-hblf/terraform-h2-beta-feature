@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.5](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.4...v0.4.5) (2025-02-12)
+
+
+### Bug Fixes
+
+* **tfc-tag-creation:** need auto merge if check pass ([5ca95cc](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/5ca95cc4cb65880853e3738c85b9c026899e6d3d))
+
 ## [0.4.4](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.3...v0.4.4) (2025-02-12)
 
 
