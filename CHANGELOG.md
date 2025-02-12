@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.3...v0.4.4) (2025-02-12)
+
+
+### Bug Fixes
+
+* **tfc-tag-creation:** release please first then tfc tag ([43e080c](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/43e080c1f561596cce0d1c65a50567c93876264e))
+
 ## [0.4.3](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.2...v0.4.3) (2025-02-11)
 
 
