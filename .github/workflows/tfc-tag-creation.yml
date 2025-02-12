@@ -13,19 +13,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Make API Request
-        id: api_request
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: 'https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions'
-          method: 'POST'
-          bearerToken: ${{ secrets.API_HEADERS }}
-          customHeaders: '{"Content-Type": "application/vnd.api+json"}'
-          data: '{ "data": {"type": "registry-module-versions", "attributes": { "version": "${{ github.event.release.tag_name }}", "commit-sha": "${{ github.sha }}" } } }'
-
-      - name: Show API Response Status
-        run: |
-          echo "Response Status: ${{ steps.api_request.outputs.status }}"
-
-      - name: Show API Response Data
-        run: |
-          echo "Response Data: ${{ steps.api_request.outputs.response }}"
+        run: | 
+          curl --header "Authorization: Bearer ${{ secrets.API_HEADERS }}" --header "Content-Type: application/vnd.api+json" --request POST --data "{ "data": {"type": "registry-module-versions", "attributes": { "version": "${{ github.event.release.tag_name }}", "commit-sha": "${{ github.sha }}" } } }" https://app.terraform.io/api/v2/organizations/PersonalUseHL/registry-modules/private/PersonalUseHL/beta-feature/h2/versions
