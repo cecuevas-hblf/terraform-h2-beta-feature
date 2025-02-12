@@ -134,3 +134,8 @@ variable "demo-two" {
   type    = string
   default = null
 }
+
+variable "new-ref" {
+  type    = string
+  default = null
+}
