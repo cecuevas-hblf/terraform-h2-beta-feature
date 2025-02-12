@@ -114,3 +114,8 @@ variable "tag-creation-trigger-on-release" {
   type    = string
   default = null
 }
+
+variable "tag-creation-trigger-on-release-auto-merge" {
+  type    = string
+  default = null
+}
