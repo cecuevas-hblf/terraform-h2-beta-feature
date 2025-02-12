@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.7](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.6...v0.4.7) (2025-02-12)
+
+
+### Bug Fixes
+
+* **demo:** testing full workflow ([85cbbe6](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/85cbbe6a305c9f3a325008e4e3facd499d19c3be))
+
 ## [0.4.6](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.5...v0.4.6) (2025-02-12)
 
 
