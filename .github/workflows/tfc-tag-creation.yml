@@ -1,9 +1,8 @@
 name: Make API Request to Terraform Cloud to reconcile module version with GitHub release
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [released]
 
 jobs:
   make-api-request:
@@ -32,8 +31,8 @@ jobs:
 
       - name: Show API Response Status
         run: |
-          echo "Response Status: ${{ steps.api_request.outputs.response-status }}"
+          echo "Response Status: ${{ steps.api_request.outputs.status }}"
 
       - name: Show API Response Data
         run: |
-          echo "Response Data: ${{ steps.api_request.outputs.response-data }}"
+          echo "Response Data: ${{ steps.api_request.outputs.data }}"
