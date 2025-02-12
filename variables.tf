@@ -119,3 +119,8 @@ variable "tag-creation-trigger-on-release-auto-merge" {
   type    = string
   default = null
 }
+
+variable "from-vsc" {
+  type    = string
+  default = null
+}
