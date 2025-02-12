@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.9](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.8...v0.4.9) (2025-02-12)
+
+
+### Bug Fixes
+
+* **tfc-tag:** new last release version ([5f59704](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/5f59704e95ad333cf2e7099f1c2ac34098f9d917))
+
 ## [0.4.8](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.7...v0.4.8) (2025-02-12)
 
 
