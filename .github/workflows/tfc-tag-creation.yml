@@ -12,13 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Get latest release version
-        id: last_release
-        uses: InsonusK/get-latest-release@v1.1.0
-        with:
-          myToken: ${{ secrets.RELEASE_PLEASE_REPO_NEW }}
-          view_top: 1
-
       - name: Make API Request
         id: api_request
         uses: fjogeleit/http-request-action@v1
@@ -27,7 +20,7 @@ jobs:
           method: 'POST'
           bearerToken: ${{ secrets.API_HEADERS }}
           customHeaders: '{"Content-Type": "application/vnd.api+json"}'
-          data: '{ "data": {"type": "registry-module-versions", "attributes": { "version": "${{ steps.last_release.outputs.tag_name }}", "commit-sha": "${{ github.sha }}" } } }'
+          data: '{ "data": {"type": "registry-module-versions", "attributes": { "version": "${{ github.event.release.tag_name }}", "commit-sha": "${{ github.sha }}" } } }'
 
       - name: Show API Response Status
         run: |
