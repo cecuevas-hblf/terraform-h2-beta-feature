@@ -149,3 +149,8 @@ variable "new-ref-three" {
   type    = string
   default = null
 }
+
+variable "new-ref-four" {
+  type    = string
+  default = null
+}
