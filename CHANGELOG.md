@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.20](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.19...v0.4.20) (2025-02-18)
+
+
+### Bug Fixes
+
+* **release:** rolling back token ([b184b3a](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/commit/b184b3a534cad0e342b5440661e93e6a86c0b306))
+
 ## [0.4.19](https://github.com/cecuevas-hblf/terraform-h2-beta-feature/compare/v0.4.18...v0.4.19) (2025-02-18)
 
 
