@@ -154,3 +154,8 @@ variable "new-ref-four" {
   type    = string
   default = null
 }
+
+variable "final-variable" {
+  type    = string
+  default = null
+}
