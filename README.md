@@ -18,8 +18,8 @@ Ayeee
 
 ```mermaid
 graph TD;
-    A-->B;
+    Dependabot-->Release Please;
     A-->C;
-    B-->D;
+    Release Please-->TFC Tag;
     C-->D;
 ```
