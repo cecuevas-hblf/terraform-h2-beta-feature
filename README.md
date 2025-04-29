@@ -20,6 +20,6 @@ Ayeee
 graph TD;
     Dependabot-->Release Please;
     A-->C;
-    Release Please-->TFC Tag;
+    Release-Please-->TFC-Tag;
     C-->D;
 ```
