@@ -18,7 +18,7 @@ Ayeee
 
 ```mermaid
 graph TD;
-    Dependabot-->Release Please;
+    Dependabot-->Release-Please;
     A-->C;
     Release-Please-->TFC-Tag;
     C-->D;
